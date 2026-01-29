@@ -2,9 +2,9 @@ import { AppBar, Box, Button, Container, Toolbar, Typography } from "@mui/materi
 import { NavLink, Route, Routes } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
-import ProductsPage from "./pages/ProductsPage";
-import SumPage from "./pages/SumPage";
-import MultiplyPage from "./pages/MultiplyPage";
+import CategoriasPage from "./pages/CategoriasPage";
+import RegistroPage from "./pages/RegistroPage";
+import CalculosPage from "./pages/CalculosPage";
 import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
@@ -13,32 +13,32 @@ const linkBtnSx = {
   textTransform: "none",
   borderRadius: 2,
   px: 2,
-  "&.active": { bgcolor: "rgba(255,255,255,.12)" },
+  "&.active": { bgcolor: "rgba(153, 143, 143, 0.12)" },
 };
 
 export default function App() {
   return (
     <>
-      <AppBar position="static" sx={{ bgcolor: "#343a40" }}>
+      <AppBar position="static" sx={{ bgcolor: "green" }}>
         <Toolbar sx={{ gap: 1 }}>
           <Typography variant="h6" sx={{ fontWeight: 800, mr: 2 }}>
-            Mi App Bootstrap
+            Gestión de Categorías
           </Typography>
 
           <Button component={NavLink} to="/" end sx={linkBtnSx}>
             Home
           </Button>
-          <Button component={NavLink} to="/productos" sx={linkBtnSx}>
-            Productos
+          <Button component={NavLink} to="/categorías" sx={linkBtnSx}>
+            Categorías
           </Button>
-          <Button component={NavLink} to="/suma" sx={linkBtnSx}>
-            Suma
+          <Button component={NavLink} to="/nueva categoría" sx={linkBtnSx}>
+            Nueva Categoría
           </Button>
-          <Button component={NavLink} to="/multiplica" sx={linkBtnSx}>
-            Multiplica
+          <Button component={NavLink} to="/cálculos" sx={linkBtnSx}>
+            Cálculos
           </Button>
           <Button component={NavLink} to="/acerca" sx={linkBtnSx}>
-            Acerca de
+            Información
           </Button>
 
           <Box sx={{ flex: 1 }} />
@@ -48,13 +48,22 @@ export default function App() {
       <Container sx={{ py: 3 }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/productos" element={<ProductsPage />} />
-          <Route path="/suma" element={<SumPage />} />
-          <Route path="/multiplica" element={<MultiplyPage />} />
+          <Route path="/categorías" element={<CategoriasPage/>} />
+          <Route path="/nueva categoría" element={<RegistroPage />} />
+          <Route path="/cálculos" element={<CalculosPage />} />
           <Route path="/acerca" element={<AboutPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Container>
+
+    <center>
+
+      <Typography variant="h9" sx={{ fontWeight: 800, mr: 2 }}>
+        © 2025 - Sistema de Categorías - Taller Académico
+      </Typography>
+      
+    </center>
+      
     </>
   );
 }

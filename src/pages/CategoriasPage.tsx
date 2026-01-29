@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 
-export default function ProductsPage() {
+export default function CategoriasPage() {
   const [items, setItems] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -46,11 +46,11 @@ export default function ProductsPage() {
   return (
     <Paper sx={{ p: 3, borderRadius: 3 }}>
       <Typography variant="h5" fontWeight={900} gutterBottom>
-        Productos
+        Listado de Categorías (Star Wars - Personajes)
       </Typography>
 
       <Typography color="text.secondary" sx={{ mb: 2 }}>
-        API: /products/?page=1&page_size=100 (sin paginación en la interfaz)
+        https://akabab.github.io/starwars-api/api/all.json
       </Typography>
 
       {error && (
@@ -92,7 +92,7 @@ export default function ProductsPage() {
                       style={{ width: 48, height: 48, objectFit: "cover", borderRadius: 8, border: "1px solid rgba(0,0,0,.15)" }}
                       onError={(e) => {
                         (e.currentTarget as HTMLImageElement).src =
-                          "https://via.placeholder.com/80?text=No+Img";
+                          "https://akabab.github.io/starwars-api/api/all.json";
                       }}
                     />
                   ) : (
